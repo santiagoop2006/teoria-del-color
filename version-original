@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorLab Pro — Teoría del Color Aplicada</title>
+    <link rel="stylesheet" href="styles-dark.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-light">
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <span class="logo">Color<strong>Lab.</strong></span>
+            <div class="nav-actions">
+                <span class="badge">UI/UX Studio</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>La ciencia detrás de <br><span class="text-gradient">la armonía visual</span></h1>
+            <p>Explora cómo la teoría del color dicta la experiencia de usuario, la accesibilidad y la identidad de marca en el desarrollo web moderno.</p>
+        </div>
+    </header>
+
+    <main class="dashboard-layout">
+        
+        <section class="interactive-panel">
+            <div class="panel-header">
+                <h2>01 / Laboratorio de Armonías</h2>
+                <p>Selecciona una regla cromática para visualizar su comportamiento en tiempo real.</p>
+            </div>
+            
+            <div class="color-controls">
+                <button class="control-btn active" onclick="changeHarmony('monochromatic')">Monocromático</button>
+                <button class="control-btn" onclick="changeHarmony('analogous')">Análogo</button>
+                <button class="control-btn" onclick="changeHarmony('complementary')">Complementario</button>
+            </div>
+
+            <div class="palette-preview" id="paletteVisualizer">
+                <div class="color-swatch swatch-1"><span>#4f46e5</span></div>
+                <div class="color-swatch swatch-2"><span>#6366f1</span></div>
+                <div class="color-swatch swatch-3"><span>#818cf8</span></div>
+                <div class="color-swatch swatch-4"><span>#a5b4fc</span></div>
+            </div>
+        </section>
+
+        <section class="concepts-grid">
+            <div class="concept-card">
+                <div class="card-meta">Fundamento</div>
+                <h3>Psicología Cognitiva</h3>
+                <p>Los colores no solo decoran; disparan respuestas biológicas y psicológicas. El azul reduce la tasa cardíaca induciendo confianza, mientras que el amarillo procesa la atención de manera inmediata.</p>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-meta">Accesibilidad WCAG</div>
+                <h3>Contraste de Relación 4.5:1</h3>
+                <p>Garantizar que el texto sea legible contra el fondo es un requerimiento legal de accesibilidad. Un contraste deficiente rompe la experiencia de usuario de manera drástica.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 ColorLab Pro. Desarrollado para evaluación de Frontend Avanzado.</p>
+    </footer>
+
+    <script>
+        function changeHarmony(type) {
+            // Quitar clase activa de botones
+            document.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const visualizer = document.getElementById('paletteVisualizer');
+            
+            // Cambiar tokens dinámicamente simulando un cambio de armonía real
+            if (type === 'monochromatic') {
+                visualizer.innerHTML = `
+                    <div class="color-swatch" style="background: #4f46e5"><span>#4f46e5</span></div>
+                    <div class="color-swatch" style="background: #6366f1"><span>#6366f1</span></div>
+                    <div class="color-swatch" style="background: #818cf8"><span>#818cf8</span></div>
+                    <div class="color-swatch" style="background: #a5b4fc"><span>#a5b4fc</span></div>
+                `;
+            } else if (type === 'analogous') {
+                visualizer.innerHTML = `
+                    <div class="color-swatch" style="background: #4f46e5"><span>#4f46e5</span></div>
+                    <div class="color-swatch" style="background: #7c3aed"><span>#7c3aed</span></div>
+                    <div class="color-swatch" style="background: #2563eb"><span>#2563eb</span></div>
+                    <div class="color-swatch" style="background: #0d9488"><span>#0d9488</span></div>
+                `;
+            } else if (type === 'complementary') {
+                visualizer.innerHTML = `
+                    <div class="color-swatch" style="background: #4f46e5"><span>#4f46e5</span></div>
+                    <div class="color-swatch" style="background: #ea580c"><span>#ea580c</span></div>
+                    <div class="color-swatch" style="background: #f97316"><span>#f97316</span></div>
+                    <div class="color-swatch" style="background: #c084fc"><span>#c084fc</span></div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
